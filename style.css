@@ -534,36 +534,40 @@ header {
 }
 
 /* Sponsorship Table */
-.sponsorship-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 15px;
-    padding: 50px;
-    margin-top: 30px;
+/* Container da tabela - para controlar o scroll */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 30px 0;
+    border-radius: 10px;
     box-shadow: var(--shadow);
 }
 
+/* Estilo da tabela - mantém largura fixa para desktop */
 .sponsorship-table {
     width: 100%;
+    min-width: 800px; /* Largura mínima para desktop */
     border-collapse: collapse;
-    margin-top: 30px;
     background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
 }
 
 .sponsorship-table thead {
     background-color: var(--primary-color);
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .sponsorship-table th {
-    padding: 20px;
+    padding: 20px 15px;
     text-align: left;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .sponsorship-table tbody tr {
@@ -573,30 +577,52 @@ header {
 
 .sponsorship-table tbody tr:hover {
     background-color: #f9f9f9;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
 }
 
 .sponsorship-table td {
-    padding: 20px;
+    padding: 20px 15px;
     vertical-align: top;
+    min-width: 150px;
 }
 
+/* Células específicas com larguras mínimas */
+.sponsorship-table td:first-child {
+    min-width: 180px; /* Tipo de patrocínio */
+}
+
+.sponsorship-table td:nth-child(2) {
+    min-width: 300px; /* Contrapartidas */
+}
+
+.sponsorship-table td:nth-child(3) {
+    min-width: 120px; /* Valor */
+    text-align: center;
+}
+
+.sponsorship-table td:last-child {
+    min-width: 100px; /* Ação */
+    text-align: center;
+}
+
+/* Estilos dos elementos dentro da tabela */
 .sponsor-type {
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--primary-color);
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 .sponsor-type i {
-    margin-right: 10px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    flex-shrink: 0;
 }
 
 .sponsor-benefits {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .sponsor-benefits li {
@@ -604,6 +630,8 @@ header {
     border-bottom: 1px dashed #eee;
     position: relative;
     padding-left: 25px;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 .sponsor-benefits li:last-child {
@@ -613,26 +641,187 @@ header {
 .sponsor-benefits li i {
     position: absolute;
     left: 0;
-    top: 10px;
+    top: 9px;
     color: #4CAF50;
+    font-size: 0.9rem;
 }
 
 .sponsor-price {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--secondary-color);
     text-align: center;
+    line-height: 1.2;
 }
 
 .sponsor-price small {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #777;
     display: block;
     font-weight: normal;
+    margin-top: 5px;
 }
 
 .sponsor-cta {
     text-align: center;
+}
+
+.sponsor-cta .btn {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+/* Cores para cada tipo de patrocínio */
+.sponsorship-table tr[data-type="oficial"] {
+    background-color: rgba(255, 249, 230, 0.3);
+}
+
+.sponsorship-table tr[data-type="platina"] {
+    background-color: rgba(232, 244, 248, 0.3);
+}
+
+.sponsorship-table tr[data-type="ouro"] {
+    background-color: rgba(255, 249, 230, 0.3);
+}
+
+.sponsorship-table tr[data-type="prata"] {
+    background-color: rgba(240, 240, 240, 0.3);
+}
+
+.sponsorship-table tr[data-type="bronze"] {
+    background-color: rgba(245, 232, 209, 0.3);
+}
+
+.sponsorship-table tr[data-type="expositor"] {
+    background-color: rgba(240, 248, 255, 0.3);
+}
+
+.sponsorship-table tr[data-type="parceiro"] {
+    background-color: rgba(240, 255, 240, 0.3);
+}
+
+/* ============================================
+   VERSÃO MOBILE - CARDS EM VEZ DE TABELA
+   (Para dispositivos muito pequenos)
+============================================= */
+
+.sponsorship-cards {
+    display: none; /* Escondido por padrão */
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.sponsorship-card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.sponsorship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.sponsorship-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+.sponsorship-card-type {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sponsorship-card-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-align: right;
+}
+
+.sponsorship-card-price small {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: normal;
+}
+
+.sponsorship-card-benefits {
+    list-style: none;
+    margin: 0 0 25px 0;
+    padding: 0;
+}
+
+.sponsorship-card-benefits li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    position: relative;
+    padding-left: 30px;
+}
+
+.sponsorship-card-benefits li:last-child {
+    border-bottom: none;
+}
+
+.sponsorship-card-benefits li i {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    color: #4CAF50;
+}
+
+.sponsorship-card-cta {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Cores para os cards */
+.sponsorship-card[data-type="oficial"] {
+    border-left-color: #d4af37;
+    background: linear-gradient(135deg, #fff9e6 0%, #fff4d4 100%);
+}
+
+.sponsorship-card[data-type="platina"] {
+    border-left-color: #a6a6a6;
+    background: linear-gradient(135deg, #e8f4f8 0%, #d9ecf4 100%);
+}
+
+.sponsorship-card[data-type="ouro"] {
+    border-left-color: #d4af37;
+    background: linear-gradient(135deg, #fff9e6 0%, #fff4d4 100%);
+}
+
+.sponsorship-card[data-type="prata"] {
+    border-left-color: #c0c0c0;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+}
+
+.sponsorship-card[data-type="bronze"] {
+    border-left-color: #cd7f32;
+    background: linear-gradient(135deg, #f5e8d1 0%, #f0dec4 100%);
+}
+
+.sponsorship-card[data-type="expositor"] {
+    border-left-color: #5a9bd5;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+}
+
+.sponsorship-card[data-type="parceiro"] {
+    border-left-color: #4CAF50;
+    background: linear-gradient(135deg, #f0fff0 0%, #e6ffe6 100%);
 }
 
 /* Footer */
@@ -736,6 +925,36 @@ footer {
     font-size: 3rem;
     margin-bottom: 15px;
     color: #aaa;
+}
+
+@media (max-width: 1024px) {
+    .sponsorship-table {
+        min-width: 700px;
+        font-size: 0.95rem;
+    }
+    
+    .sponsorship-table th,
+    .sponsorship-table td {
+        padding: 15px 12px;
+    }
+    
+    .sponsor-type {
+        font-size: 1rem;
+    }
+    
+    .sponsor-benefits li {
+        font-size: 0.85rem;
+        padding-left: 22px;
+    }
+    
+    .sponsor-price {
+        font-size: 1.4rem;
+    }
+    
+    .sponsor-cta .btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
 }
 
 /* Responsive Design */
@@ -858,5 +1077,751 @@ footer {
     
     .courses-container {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   CORREÇÕES PARA DISPOSITIVOS MUITO PEQUENOS
+   (340px e abaixo)
+============================================= */
+
+@media (max-width: 340px) {
+    /* Ajustes gerais */
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    /* Header */
+    .header-container {
+        padding: 15px 0;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .logo small {
+        font-size: 0.7rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+        padding: 120px 0 60px;
+        margin-top: 60px;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero-info {
+        gap: 15px;
+        margin: 25px 0;
+    }
+    
+    .info-item {
+        min-width: 100px;
+        padding: 10px;
+    }
+    
+    .info-item i {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+    }
+    
+    .info-item span {
+        font-size: 0.85rem;
+    }
+    
+    .info-item small {
+        font-size: 0.7rem;
+    }
+    
+    .hero-buttons {
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    /* Section Titles */
+    .section-title {
+        margin-bottom: 30px;
+    }
+    
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-title p {
+        font-size: 0.9rem;
+    }
+    
+    /* About Section */
+    .about-content {
+        gap: 30px;
+    }
+    
+    .about-text h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .about-highlights {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .highlight {
+        padding: 15px;
+    }
+    
+    .highlight i {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .highlight h4 {
+        font-size: 1rem;
+    }
+    
+    .highlight p {
+        font-size: 0.85rem;
+    }
+    
+    .about-image {
+        height: 200px;
+    }
+    
+    /* Hosts Section */
+    .hosts-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .host-img-container {
+        height: 250px;
+    }
+    
+    .host-info {
+        padding: 20px;
+    }
+    
+    .host-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .host-info .title {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    /* Program Section */
+    .program-timeline {
+        margin-top: 20px;
+    }
+    
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .time {
+        padding: 8px;
+        font-size: 0.9rem;
+        align-self: flex-start;
+    }
+    
+    .event-details h4 {
+        font-size: 1rem;
+    }
+    
+    .event-details p {
+        font-size: 0.85rem;
+    }
+    
+    /* Pricing Section */
+    .pricing-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .pricing-card {
+        padding: 20px;
+    }
+    
+    .pricing-card.featured {
+        transform: none;
+    }
+    
+    .pricing-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .price {
+        font-size: 2rem;
+    }
+    
+    .pricing-features li {
+        font-size: 0.85rem;
+        padding: 6px 0;
+    }
+    
+    .discount-info {
+        padding: 15px;
+        margin-top: 30px;
+    }
+    
+    .discount-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .discount-category {
+        padding: 15px;
+    }
+    
+    /* Courses Section */
+    .courses-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .course-card {
+        padding: 20px;
+    }
+    
+    .course-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .course-details li {
+        font-size: 0.85rem;
+        padding: 6px 0;
+    }
+    
+    /* Sponsorship Table */
+    .sponsorship-section {
+        padding: 20px;
+        margin-top: 20px;
+    }
+    
+    .sponsorship-table {
+        font-size: 0.8rem;
+    }
+    
+    .sponsorship-table th,
+    .sponsorship-table td {
+        padding: 10px 5px;
+    }
+    
+    .sponsor-type {
+        font-size: 0.9rem;
+    }
+    
+    .sponsor-type i {
+        font-size: 1rem;
+        margin-right: 5px;
+    }
+    
+    .sponsor-benefits li {
+        font-size: 0.75rem;
+        padding-left: 18px;
+    }
+    
+    .sponsor-benefits li i {
+        font-size: 0.8rem;
+        top: 8px;
+    }
+    
+    .sponsor-price {
+        font-size: 1.2rem;
+    }
+    
+    .sponsor-cta .btn {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .footer-col h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-info li {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+    
+    .social-links {
+        gap: 10px;
+    }
+    
+    .social-links a {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .copyright {
+        font-size: 0.8rem;
+        padding-top: 20px;
+    }
+    
+    /* Correções específicas para tabelas */
+    .sponsorship-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .sponsorship-table th:nth-child(2),
+    .sponsorship-table td:nth-child(2) {
+        min-width: 200px;
+    }
+    
+    .sponsorship-table th:nth-child(3),
+    .sponsorship-table td:nth-child(3) {
+        min-width: 80px;
+    }
+    
+    .sponsorship-table th:nth-child(4),
+    .sponsorship-table td:nth-child(4) {
+        min-width: 70px;
+    }
+    
+    /* Correções para textos longos */
+    .timeline-content,
+    .host-info p,
+    .course-card p {
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Botões em containers pequenos */
+    .sponsor-cta {
+        min-width: 70px;
+    }
+    
+    /* Ajustes para navegação mobile */
+    .nav-menu {
+        top: 60px;
+    }
+    
+    /* Ajustes para padding seguro em dispositivos muito pequenos */
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+/* ============================================
+   CORREÇÕES ADICIONAIS PARA 375px - 340px
+============================================= */
+
+@media (max-width: 375px) and (min-width: 341px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title h2 {
+        font-size: 1.7rem;
+    }
+    
+    .host-img-container {
+        height: 280px;
+    }
+    
+    .pricing-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .sponsorship-table {
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   CORREÇÃO PARA TABELAS EM TODOS OS DISPOSITIVOS PEQUENOS
+============================================= */
+
+@media (max-width: 768px) {
+    .sponsorship-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .sponsorship-table th,
+    .sponsorship-table td {
+        white-space: normal;
+        min-width: 120px;
+    }
+}
+
+/* ============================================
+   CORREÇÃO PARA PREVENIR OVERFLOW HORIZONTAL
+============================================= */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 100%;
+}
+
+/* ============================================
+   AJUSTES PARA TEXTOS EM DISPOSITIVOS MUITO PEQUENOS
+============================================= */
+
+@media (max-width: 340px) {
+    /* Garantir que textos não quebrem layout */
+    h1, h2, h3, h4, h5, h6 {
+        word-break: break-word;
+    }
+    
+    /* Ajuste específico para títulos longos */
+    .hero h1 {
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+    
+    /* Ajuste para botões com texto longo */
+    .btn {
+        white-space: normal;
+        line-height: 1.3;
+        padding: 10px 15px;
+    }
+    
+    /* Ajuste para itens do menu mobile */
+    .nav-menu a {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    
+    /* Correção para o toggle do menu mobile */
+    .mobile-toggle {
+        font-size: 1.3rem;
+    }
+}
+
+/* ============================================
+   CORREÇÃO PARA IMAGENS EM DISPOSITIVOS MUITO PEQUENOS
+============================================= */
+
+@media (max-width: 340px) {
+    .host-img-container,
+    .about-image,
+    .speaker-img-container {
+        height: 200px !important;
+    }
+    
+    .sponsor-item {
+        height: 80px;
+        padding: 10px;
+    }
+    
+    .sponsor-logo {
+        max-height: 60px;
+    }
+}
+
+/* ============================================
+   CORREÇÃO PARA FORMULÁRIOS E INPUTS
+============================================= */
+
+@media (max-width: 340px) {
+    input, select, textarea {
+        font-size: 16px !important; /* Previne zoom no iOS */
+        max-width: 100%;
+    }
+    
+    /* Garantir que inputs não saiam do container */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ============================================
+   CORREÇÃO ESPECÍFICA PARA SAFARI IOS
+============================================= */
+
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 340px) {
+        .hero {
+            padding-top: 140px; /* Ajuste para safari iOS */
+        }
+        
+        /* Previne comportamento estranho de scroll */
+        .container {
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+}
+
+
+/* Mobile Grande (576px a 767px) */
+@media (max-width: 767px) {
+    .sponsorship-table {
+        min-width: 600px;
+        font-size: 0.9rem;
+    }
+    
+    .sponsorship-table th {
+        font-size: 0.9rem;
+        padding: 12px 10px;
+    }
+    
+    .sponsorship-table td {
+        padding: 12px 10px;
+        min-width: 120px;
+    }
+    
+    .sponsorship-table td:first-child {
+        min-width: 150px;
+    }
+    
+    .sponsorship-table td:nth-child(2) {
+        min-width: 250px;
+    }
+    
+    .sponsor-type {
+        font-size: 0.95rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .sponsor-type i {
+        font-size: 1.1rem;
+    }
+    
+    .sponsor-benefits li {
+        font-size: 0.8rem;
+        padding: 6px 0;
+        padding-left: 20px;
+    }
+    
+    .sponsor-price {
+        font-size: 1.3rem;
+    }
+    
+    .sponsor-price small {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile Médio (480px a 575px) - TRANSITION PARA CARDS */
+@media (max-width: 575px) {
+    .table-responsive {
+        display: none; /* Esconde a tabela */
+    }
+    
+    .sponsorship-cards {
+        display: flex; /* Mostra os cards */
+    }
+    
+    /* Ajustes para os cards */
+    .sponsorship-card {
+        padding: 20px;
+    }
+    
+    .sponsorship-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .sponsorship-card-price {
+        text-align: left;
+        width: 100%;
+    }
+    
+    .sponsorship-card-benefits li {
+        font-size: 0.9rem;
+        padding-left: 25px;
+    }
+}
+
+/* Mobile Pequeno (360px a 479px) */
+@media (max-width: 479px) {
+    .sponsorship-card {
+        padding: 18px;
+    }
+    
+    .sponsorship-card-type {
+        font-size: 1.1rem;
+    }
+    
+    .sponsorship-card-price {
+        font-size: 1.6rem;
+    }
+    
+    .sponsorship-card-benefits li {
+        font-size: 0.85rem;
+        padding: 8px 0;
+        padding-left: 25px;
+    }
+    
+    .sponsorship-card-benefits li i {
+        top: 10px;
+    }
+    
+    .sponsorship-card-cta .btn {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+/* Mobile Muito Pequeno (até 359px) */
+@media (max-width: 359px) {
+    .sponsorship-card {
+        padding: 15px;
+    }
+    
+    .sponsorship-card-type {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .sponsorship-card-price {
+        font-size: 1.4rem;
+    }
+    
+    .sponsorship-card-benefits li {
+        font-size: 0.8rem;
+        padding-left: 22px;
+    }
+    
+    .sponsorship-card-benefits li i {
+        font-size: 0.8rem;
+        top: 9px;
+    }
+}
+
+/* ============================================
+   ANIMAÇÃO DE TRANSITION ENTRE TABELA E CARDS
+============================================= */
+
+.sponsorship-cards {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   INDICADOR DE SCROLL PARA TABELA (APENAS MOBILE)
+============================================= */
+
+@media (max-width: 767px) {
+    .table-responsive {
+        position: relative;
+    }
+    
+    .table-responsive::after {
+        content: '← Deslize para ver mais →';
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 100;
+    }
+    
+    .table-responsive:hover::after {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   ESTILOS PARA IMPRESSÃO
+============================================= */
+
+@media print {
+    .table-responsive {
+        overflow: visible;
+        box-shadow: none;
+    }
+    
+    .sponsorship-table {
+        min-width: 100%;
+        border: 1px solid #ddd;
+    }
+    
+    .sponsorship-table th {
+        background-color: #f0f0f0 !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .sponsor-cta .btn {
+        display: none;
     }
 }
