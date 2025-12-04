@@ -5,609 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico - Global HSE & ESG Summit | Edições Anteriores</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Reset e estilos base */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary-color: #1a5f7a;
-            --secondary-color: #2d8b8b;
-            --accent-color: #ff9a3c;
-            --light-color: #f8f9fa;
-            --dark-color: #2c3e50;
-            --text-color: #333;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #fff;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 4px;
-            background: var(--accent-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background: var(--accent-color);
-            color: white;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #e68a2e;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-primary {
-            background: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            background: #144c63;
-        }
-
-        /* Header */
-        header {
-            background-color: white;
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-menu li {
-            margin-left: 30px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .nav-menu a:hover {
-            color: var(--accent-color);
-        }
-
-        .mobile-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero-historical {
-            background: linear-gradient(rgba(26, 95, 122, 0.9), rgba(45, 139, 139, 0.9)), url('https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 180px 0 100px;
-            margin-top: 80px;
-        }
-
-        .hero-historical h1 {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-historical p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-
-        /* Editions Timeline */
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -13px;
-            background-color: white;
-            border: 4px solid var(--accent-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .timeline-item.left {
-            left: 0;
-        }
-
-        .timeline-item.right {
-            left: 50%;
-        }
-
-        .timeline-item.right::after {
-            left: -13px;
-        }
-
-        .timeline-content {
-            padding: 30px;
-            background-color: white;
-            position: relative;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .timeline-year {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .timeline-title {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 30px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        /* Speakers Section */
-        .speakers-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .speaker-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .speaker-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .speaker-img {
-            height: 250px;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-        }
-
-        .speaker-img i {
-            font-size: 4rem;
-            color: #bbb;
-        }
-
-        .speaker-info {
-            padding: 20px;
-        }
-
-        .speaker-info h4 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .speaker-info .company {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .speaker-info .topic {
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-        }
-
-        /* Gallery Section */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .gallery-item {
-            height: 250px;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Sponsors Section */
-        .sponsors-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .sponsor-item {
-            height: 120px;
-            background-color: white;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .sponsor-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 70px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-color);
-            bottom: 0;
-            left: 0;
-        }
-
-        .footer-col p {
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-
-        .contact-info {
-            list-style: none;
-        }
-
-        .contact-info li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-info i {
-            margin-right: 15px;
-            color: var(--accent-color);
-            width: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--accent-color);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* Image Placeholder Styles */
-        .image-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            text-align: center;
-            height: 100%;
-            width: 100%;
-            background-color: #f5f5f5;
-            border: 2px dashed #ccc;
-        }
-
-        .image-placeholder i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #aaa;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 18px;
-            }
-            
-            .timeline-item.left, .timeline-item.right {
-                left: 0;
-            }
-            
-            .hero-historical h1 {
-                font-size: 2.5rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 20px 0;
-                z-index: 999;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-menu li {
-                margin: 15px 0;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .hero-historical {
-                padding: 150px 0 80px;
-            }
-
-            .hero-historical h1 {
-                font-size: 2rem;
-            }
-
-            .hero-historical p {
-                font-size: 1.1rem;
-            }
-            
-            section {
-                padding: 60px 0;
-            }
-            
-            .speakers-container {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-
-        @media (max-width: 576px) {
-            .btn {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .speakers-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .sponsors-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="historico.css">
 </head>
 <body>
     <!-- Header -->
@@ -615,7 +13,7 @@
         <div class="container header-container">
             <a href="index.html" class="logo">
                 <div class="image-placeholder" style="width: 60px; height: 60px;">
-                    <i class="fas fa-image"></i>
+                    <img src="img/logotipo.jpg" alt="logotipo global HSE">
                 </div>
                 <div style="margin-left: 10px;">
                     <span>HSE & ESG</span> Summit<br>
@@ -632,8 +30,8 @@
                 <li><a href="#1a-edicao">1ª Edição 2025</a></li>
                 <li><a href="#regional-summit">Regional Summit 2025</a></li>
                 <li><a href="#preleitores">Preleitores</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-                <li><a href="#contact" class="btn">Contato</a></li>
+                <!--<li><a href="#galeria">Galeria</a></li>-->
+                <li><a href="#contact" class="btn">Contacto</a></li>
             </ul>
         </div>
     </header>
@@ -779,128 +177,205 @@
             <div class="speakers-container">
                 <!-- Preleitor 1 -->
                 <div class="speaker-card">
-                    <div class="speaker-img">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user-md"></i>
-                            <small>PRELEITOR 1</small>
-                        </div>
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor01.jpg" alt="Dra. Massoxi Gaspar Vigário" class="speaker-img">
                     </div>
                     <div class="speaker-info">
-                        <h4>Dr. Manuel Bole</h4>
-                        <span class="company">Inspector Geral do Trabalho</span>
-                        <p class="topic">Abertura Oficial e Perspectivas Regulatórias (1ª Edição)</p>
+                        <h4>Dra. Massoxi Gaspar Vigário</h4>
+                        <span class="company">Psicólga e Coordenadora Nacional do programa de Saúde Mental</span>
+                        <p class="topic">Gestão de Riscos Psicossociais em contexto laboral (1ª Edição Global HSE)</p>
                     </div>
                 </div>
                 
                 <!-- Preleitor 2 -->
                 <div class="speaker-card">
-                    <div class="speaker-img">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user-tie"></i>
-                            <small>PRELEITOR 2</small>
-                        </div>
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor02.jpg" alt="Dr. Catarino Luamba" class="speaker-img">
                     </div>
                     <div class="speaker-info">
-                        <h4>Dr. Félix Zola</h4>
-                        <span class="company">PSI Angola</span>
-                        <p class="topic">Moderação da Mesa Redonda com CEOs (1ª Edição)</p>
+                        <h4>Dr. Catarino Luamba</h4>
+                        <span class="company">Psicólogo e Docente da UAN</span>
+                        <p class="topic">As Doenças Mentais e Aptidão para o trabalho (1ª Edição Global HSE)</p>
                     </div>
                 </div>
                 
                 <!-- Preleitor 3 -->
                 <div class="speaker-card">
-                    <div class="speaker-img">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user-graduate"></i>
-                            <small>PRELEITOR 3</small>
-                        </div>
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor03.jpg" alt="Eng.º Rubén Lemos" class="speaker-img">
                     </div>
                     <div class="speaker-info">
-                        <h4>Especialista em IA</h4>
-                        <span class="company">Tecnologia & Segurança</span>
-                        <p class="topic">Segurança no Trabalho na Era da IA (1ª Edição)</p>
+                        <h4>Eng.º Rubén Lemos</h4>
+                        <span class="company">Diretor da HSE Sonangol Distribuição e Comercialização</span>
+                        <p class="topic">Riscos Profissionais - Identificação, Avalição e Mitigação (1ª Edição Global HSE)</p>
                     </div>
                 </div>
                 
                 <!-- Preleitor 4 -->
                 <div class="speaker-card">
-                    <div class="speaker-img">
-                        <div class="image-placeholder">
-                            <i class="fas fa-briefcase-medical"></i>
-                            <small>PRELEITOR 4</small>
-                        </div>
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/anfltriao1.jpg" alt="Dr. Telmo Santos" class="speaker-img">
                     </div>
                     <div class="speaker-info">
-                        <h4>Especialista em Ergonomia</h4>
-                        <span class="company">Saúde Ocupacional</span>
-                        <p class="topic">Ginástica Laboral e Prevenção de DORT (1ª Edição)</p>
+                        <h4>Dr. Telmo Santos</h4>
+                        <span class="company">Mestre em HSE</span>
+                        <p class="topic">Transformação Digital em HSE (1ª Edição Global HSE)</p>
                     </div>
                 </div>
                 
                 <!-- Preleitor 5 -->
                 <div class="speaker-card">
-                    <div class="speaker-img">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user-shield"></i>
-                            <small>PRELEITOR 5</small>
-                        </div>
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/anfltriao02.jpg" alt="Dr. Rui Capo" class="speaker-img">
                     </div>
                     <div class="speaker-info">
-                        <h4>Especialista em Seguros</h4>
-                        <span class="company">Gestão de Riscos</span>
-                        <p class="topic">Terceirização do Risco por Via do Seguro (1ª Edição)</p>
+                        <h4>Dr. Rui Capo</h4>
+                        <span class="company">Médico de Trabalho e do Trânsito</span>
+                        <p class="topic">Brigada de Saúde nas estradas, Medicina no Trânsito e Aptidão para condução (1ª Edição Global HSE)</p>
                     </div>
                 </div>
                 
                 <!-- Preleitor 6 -->
                 <div class="speaker-card">
-                    <div class="speaker-img">
-                        <div class="image-placeholder">
-                            <i class="fas fa-brain"></i>
-                            <small>PRELEITOR 6</small>
-                        </div>
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor07.jpg" alt="Dr. João Sena" class="speaker-img">
                     </div>
                     <div class="speaker-info">
-                        <h4>Psicólogo Ocupacional</h4>
-                        <span class="company">Saúde Mental</span>
-                        <p class="topic">Avaliação Psicológica para o Trabalho (1ª Edição)</p>
+                        <h4>Dr. João Sena</h4>
+                        <span class="company">Director de Serviço ao Cliente | Fidelidade SEguros</span>
+                        <p class="topic">Decreto 54/05 Vs Tabela nacional das Incapacidades - Visão da Seguradora (1ª Edição Global HSE)</p>
                     </div>
                 </div>
                 
                 <!-- Preleitor 7 - Regional Summit -->
                 <div class="speaker-card">
-                    <div class="speaker-img">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user"></i>
-                            <small>PRELEITOR 7</small>
-                        </div>
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor05.jpg" alt="Dr. Mario Tavira dos Santos" class="speaker-img">
                     </div>
                     <div class="speaker-info">
-                        <h4>Preleitor Regional</h4>
-                        <span class="company">Benguela</span>
-                        <p class="topic">Saúde Mental no Trabalho (Regional Summit)</p>
+                        <h4>Dr. Mario Tavira dos Santos</h4>
+                        <span class="company">Inspector do Trabalho</span>
+                        <p class="topic">Principais Insights do Novo Decreto 179/24 Serviços SHST (1ª Edição Global HSE)</p>
                     </div>
                 </div>
                 
                 <!-- Preleitor 8 - Regional Summit -->
                 <div class="speaker-card">
-                    <div class="speaker-img">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user"></i>
-                            <small>PRELEITOR 8</small>
-                        </div>
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor06.jpg" alt="Dr. Pedro Ngola" class="speaker-img">
                     </div>
                     <div class="speaker-info">
-                        <h4>Especialista Local</h4>
-                        <span class="company">Centro de Angola</span>
-                        <p class="topic">ESG como Factor de Sucesso (Regional Summit)</p>
+                        <h4>Dr. Pedro Ngola</h4>
+                        <span class="company">Magistrado do Ministério Público e Formador do INEJ</span>
+                        <p class="topic">Seguro de Acidentes de Trabalho e DoençaProfissionais: Responsabilidade Civil, Criminal, Moral e Ética das Empresas (1ª Edição Global HSE)</p>
+                    </div>
+                </div>
+
+                <!-- Preleitor 9 - Regional Summit -->
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor08.jpg" alt="Dr. Nataniel Fernandes" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h4>Dr. Nataniel Fernandes</h4>
+                        <span class="company">Especialista do Gabinete de Estado e Planeamento Estratégico da ARSEG</span>
+                        <p class="topic">Decreto 53/05 Vs Tabela nacional das Incapacidades - Visão de Futuro (1ª Edição Global HSE)</p>
+                    </div>
+                </div>
+
+                <!-- Preleitor 10 - Regional Summit -->
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor09.jpg" alt="Bruno Samora" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h4>Bruno Samora</h4>
+                        <span class="company">Ginástica Laboral</span>
+                        <p class="topic">(1ª Edição Global HSE)</p>
+                    </div>
+                </div>
+
+                <!-- Preleitor 11 - Regional Summit -->
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor010.jpg" alt="Drª Bárbara Mateus" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h4>Drª Bárbara Mateus</h4>
+                        <span class="company">Directora Geral da Prorummus | Formação Profissional</span>
+                        <p class="topic">ESG Como Valor Acrescentado para o Sucesso do Negócio (1ª Edição Global HSE)</p>
+                    </div>
+                </div>
+
+                <!-- Preleitor 12 - Regional Summit -->
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor011.jpg" alt="Engº Marco Romero" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h4>Engº Marco Romero</h4>
+                        <span class="company">QSSA Alfort Petroleum</span>
+                        <p class="topic">HSE no Combate as Alterações Climáticas (1ª Edição Global HSE)</p>
+                    </div>
+                </div>
+
+
+
+                <!-- Preleitor 15 - Regional Summit -->
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor014.jpg" alt="Dra. Florinda Miranda" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h4>Dra. Florinda Miranda</h4>
+                        <span class="company">Directora do Hospital Regional do Lobito</span>
+                        <p class="topic">Importância da Saúde Ocupacional nas Empresas (1ª edição do Regional HSE)</p>
+                    </div>
+                </div>
+
+                <!-- Preleitor 16 - Regional Summit -->
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor015.jpg" alt="Dr. Pedro Ivanov Neto" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h4>Dr. Pedro Ivanov Neto</h4>
+                        <span class="company">BIOGESP</span>
+                        <p class="topic">As Doenças Mentais e a Aptidão para o Trabalho (1ª edição do Regional HSE)</p>
+                    </div>
+                </div>
+
+                <!-- Preleitor 17 - Regional Summit -->
+                <div class="speaker-card">
+                    <div class="speaker-img-container">
+                        <!-- Substitua este código pela sua imagem -->
+                        <img src="img/preleitor016.jpg" alt="Dra. Ana Fernandes" class="speaker-img">
+                    </div>
+                    <div class="speaker-info">
+                        <h4>Dra. Ana Fernandes</h4>
+                        <span class="company">Psicóloga Clínica | Fundadora da Tchombela Psique | Assessoria Terapêutica</span>
+                        <p class="topic">Gestão dos Riscos Psicossociais em Contexto Laboral (1ª edição do Regional HSE)</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section 
     <section id="galeria" style="background-color: #f8f9fa;">
         <div class="container">
             <div class="section-title">
@@ -909,7 +384,7 @@
             </div>
             
             <div class="gallery-grid">
-                <!-- Foto 1 -->
+                
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
@@ -918,7 +393,7 @@
                     </div>
                 </div>
                 
-                <!-- Foto 2 -->
+                
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
@@ -927,7 +402,7 @@
                     </div>
                 </div>
                 
-                <!-- Foto 3 -->
+                
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
@@ -936,7 +411,7 @@
                     </div>
                 </div>
                 
-                <!-- Foto 4 -->
+                
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
@@ -945,7 +420,7 @@
                     </div>
                 </div>
                 
-                <!-- Foto 5 -->
+
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
@@ -954,7 +429,6 @@
                     </div>
                 </div>
                 
-                <!-- Foto 6 -->
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
@@ -965,8 +439,9 @@
             </div>
         </div>
     </section>
+    -->
 
-    <!-- Sponsors Section -->
+   <!-- Sponsors Section - VERSÃO RESPONSIVA -->
     <section>
         <div class="container">
             <div class="section-title">
@@ -974,104 +449,50 @@
                 <p>Empresas e instituições que apoiaram o nosso crescimento</p>
             </div>
             
-            <div class="sponsors-grid">
-                <div class="sponsor-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-landmark"></i>
-                        <p>GOVERNO DE ANGOLA</p>
-                    </div>
-                </div>
+            <!-- Container responsivo para a imagem -->
+            <div class="sponsors-image-container">
+                <img src="img/patrocinadores.png" alt="Patrocinadores das Edições Anteriores" class="sponsors-image">
                 
-                <div class="sponsor-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-balance-scale"></i>
-                        <p>MAPTSS</p>
+                <!-- Fallback para caso a imagem não carregue -->
+                <div class="sponsors-fallback" style="display: none;">
+                    <div class="sponsor-item">
+                        <div class="sponsor-placeholder">
+                            <i class="fas fa-landmark"></i>
+                            <p>GOVERNO DE ANGOLA</p>
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-placeholder">
+                            <i class="fas fa-balance-scale"></i>
+                            <p>MAPTSS</p>
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-placeholder">
+                            <i class="fas fa-gavel"></i>
+                            <p>IGT</p>
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-placeholder">
+                            <i class="fas fa-handshake"></i>
+                            <p>ASSO</p>
+                        </div>
+                    </div>
+                    <div class="sponsor-item">
+                        <div class="sponsor-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <p>AAMGA</p>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="sponsor-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-gavel"></i>
-                        <p>IGT</p>
-                    </div>
-                </div>
-                
-                <div class="sponsor-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-leaf"></i>
-                        <p>MINISTÉRIO DO AMBIENTE</p>
-                    </div>
-                </div>
-                
-                <div class="sponsor-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-recycle"></i>
-                        <p>AGÊNCIA NACIONAL DE RESÍDUOS</p>
-                    </div>
-                </div>
-                
-                <div class="sponsor-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-handshake"></i>
-                        <p>ASSO</p>
-                    </div>
-                </div>
-                
-                <div class="sponsor-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-chart-line"></i>
-                        <p>AAMGA</p>
-                    </div>
-                </div>
-                
-                <div class="sponsor-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-plus-circle"></i>
-                        <p>OUTROS APOIADORES</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section style="background-color: #f8f9fa;">
-        <div class="container">
-            <div class="section-title">
-                <h2>Depoimentos</h2>
-                <p>O que os participantes das edições anteriores dizem sobre o evento</p>
             </div>
             
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: var(--shadow); margin-bottom: 30px;">
-                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
-                            <i class="fas fa-user" style="font-size: 1.5rem; color: #777;"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--primary-color); margin-bottom: 5px;">Gestor de HSE</h4>
-                            <p style="color: var(--secondary-color); font-size: 0.9rem;">Empresa do Sector Petrolífero</p>
-                        </div>
-                    </div>
-                    <p style="font-style: italic; line-height: 1.8;">
-                        "A 1ª edição do Global HSE Summit superou todas as expectativas. As discussões foram extremamente relevantes para a realidade angolana e o networking com outros profissionais foi invaluable. Mal posso esperar pela próxima edição!"
-                    </p>
-                </div>
-                
-                <div style="background: white; padding: 40px; border-radius: 10px; box-shadow: var(--shadow);">
-                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                        <div style="width: 60px; height: 60px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; margin-right: 20px;">
-                            <i class="fas fa-user" style="font-size: 1.5rem; color: #777;"></i>
-                        </div>
-                        <div>
-                            <h4 style="color: var(--primary-color); margin-bottom: 5px;">Participante do Regional Summit</h4>
-                            <p style="color: var(--secondary-color); font-size: 0.9rem;">Empresa de Benguela</p>
-                        </div>
-                    </div>
-                    <p style="font-style: italic; line-height: 1.8;">
-                        "Levar o evento para o Lobito foi uma iniciativa fantástica. Conseguimos aceder a conhecimento de ponta sem ter que viajar para Luanda. Os temas foram muito bem escolhidos para a realidade das empresas da nossa região."
-                    </p>
-                </div>
+            <!-- Texto de apoio (opcional) -->
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="font-style: italic; color: #666;">
+                    Agradecemos a todos os nossos parceiros que tornaram possíveis as edições anteriores.
+                </p>
             </div>
         </div>
     </section>
@@ -1120,7 +541,7 @@
                             <i class="fas fa-phone-alt"></i>
                             <div>
                                 <strong>Inscrições:</strong><br>
-                                +244 927 872 435
+                                +244 923 979 915
                             </div>
                         </li>
                         <li>
@@ -1224,6 +645,32 @@
                     link.classList.add('active');
                 }
             });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sponsorsImage = document.querySelector('.sponsors-image');
+            const sponsorsFallback = document.querySelector('.sponsors-fallback');
+            
+            if (sponsorsImage && sponsorsFallback) {
+                // Verifica se a imagem carregou
+                sponsorsImage.onload = function() {
+                    sponsorsFallback.style.display = 'none';
+                };
+                
+                // Se a imagem não carregar
+                sponsorsImage.onerror = function() {
+                    this.style.display = 'none';
+                    this.classList.add('error');
+                    sponsorsFallback.style.display = 'grid';
+                };
+                
+                // Verificação inicial
+                if (sponsorsImage.complete && sponsorsImage.naturalHeight === 0) {
+                    sponsorsImage.style.display = 'none';
+                    sponsorsImage.classList.add('error');
+                    sponsorsFallback.style.display = 'grid';
+                }
+            }
         });
     </script>
 </body>
