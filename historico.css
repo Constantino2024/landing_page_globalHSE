@@ -289,7 +289,7 @@ header {
 /* Speakers Section */
 .speakers-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(209px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
@@ -308,7 +308,7 @@ header {
 }
 
 .speaker-img {
-    height: 250px;
+    height: 265px;
     background-color: #eee;
     display: flex;
     align-items: center;
@@ -974,6 +974,33 @@ html, body {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     background: #f8f9fa;
     padding: 20px;
+}
+
+.speaker-img-container {
+    height: 280px; /* Altura fixa para consistência */
+    width: 100%; /* Ocupa 100% da largura disponível */
+    overflow: hidden; /* Esconde qualquer parte que ultrapasse */
+    position: relative;
+    background-color: #f5f5f5;
+    display: flex; /* Usa flexbox para centralizar */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.speaker-img {
+    width: 100%; /* Ocupa toda a largura do container */
+    height: 100%; /* Ocupa toda a altura do container */
+    object-fit: cover; /* PREENCHER O CONTAINER COMPLETAMENTE */
+    object-position: center; /* Centraliza o foco da imagem */
+    display: block;
+    min-width: 100%; /* Garante que nunca seja menor que o container */
+    min-height: 100%; /* Garante que nunca seja menor que o container */
+    transition: transform 0.5s ease;
+}
+
+/* Efeito hover - zoom suave */
+.speaker-card:hover .speaker-img {
+    transform: scale(1.05);
 }
 
 /* Imagem dos patrocinadores - TOTALMENTE RESPONSIVA */
