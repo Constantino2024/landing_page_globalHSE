@@ -1834,3 +1834,66 @@ html, body {
         display: none;
     }
 }
+
+
+/* Estilos para a seção de citação */
+#quote {
+    position: relative;
+    overflow: hidden;
+}
+
+#quote::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.quote-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilos para a seção da imagem */
+#featured-quote {
+    transition: all 0.3s ease;
+}
+
+#featured-quote:hover {
+    transform: translateY(-5px);
+}
+
+#featured-quote img {
+    transition: transform 0.5s ease;
+}
+
+#featured-quote:hover img {
+    transform: scale(1.02);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #quote blockquote p {
+        font-size: 1.1rem;
+    }
+    
+    #featured-quote {
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    #quote {
+        padding: 50px 0;
+    }
+    
+    #quote blockquote p {
+        font-size: 1rem;
+    }
+}
