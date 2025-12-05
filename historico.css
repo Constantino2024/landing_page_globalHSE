@@ -1308,19 +1308,3 @@ html, body {
 .gallery-item:hover .gallery-img {
     transform: scale(1.05);
 }
-
-/* ============================================
-   CORREÇÃO PARA SAFARI IOS
-============================================= */
-
-@supports (-webkit-touch-callout: none) {
-    .speaker-img-container,
-    .gallery-item {
-        -webkit-transform: translateZ(0);
-    }
-    
-    img {
-        -webkit-user-select: none;
-        -webkit-touch-callout: none;
-    }
-}
